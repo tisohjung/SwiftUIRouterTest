@@ -79,11 +79,11 @@ mergeable:
                     - "^release\/.+$"
                     - "^feature\/.+$"
                     - "^bug\/.+$"
-                  message: head branch name should be one of `main`, `develop`, `release/*`, `feature/*`, `bug/*`.
-                must_exclude:
-                  regex:
                     - "^infra\/.+$"
-                  message: head branch cannot be `infra/*`.
+                  message: head branch name should be one of `main`, `develop`, `release/*`, `feature/*`, `bug/*`, `infra/*`.
+                # must_exclude:
+                #   regex:
+                #   message: head branch cannot be `infra/*`.
           - do: and
             validate:
               - do: baseRef
