@@ -1,0 +1,154 @@
+version: 2
+mergeable:
+  - when: pull_request.*
+    name: Branch Name
+    validate:
+      - do: headRef
+        must_include:
+          regex:
+            - "^main$"
+            - "^release\/.+$"
+            - "^feature\/.+$"
+            - "^bug\/.+$"
+            - "^infra\/.+$"
+          message: Change branch name to `main`, `release/*`, `feature/*`, `bug/*`, `infra/*`.
+    pass:
+      - do: checks
+    fail:
+      - do: checks
+      - do: comment
+        payload:
+          body: |
+            :x:
+            **`{{ validationSuites.[0].validations.[0].details.input }}` has wrong branch name.**
+            branch should be `main`, `release/*`, `feature/*`, `bug/*`, `infra/*`.
+    error:
+      - do: checks
+  - when: pull_request.*
+    name: Base Branch
+    validate:
+      - do: or
+        validate:
+          - do: and
+            validate:
+              - do: baseRef
+                must_include:
+                  regex: "^main$"
+                  message: When base is `main`
+              - do: headRef
+                must_include:
+                  regex:
+                    - "^develop$"
+                  message: head branch name should be `develop`.
+                must_exclude:
+                  regex:
+                    - "^release\/.+$"
+                    - "^feature\/.+$"
+                    - "^bug\/.+$"
+                    - "^infra\/.+$"
+                  message: head branch cannot be `release/*`, `feature/*`, `bug/*`, `infra/*`.
+          - do: and
+            validate:
+              - do: baseRef
+                must_include:
+                  regex: "^develop$"
+                  message: When base is `develop`
+              - do: headRef
+                must_include:
+                  regex:
+                    - "^main$"
+                    - "^release\/.+$"
+                  message: head branch name should be one of `main`, `release/*`.
+                must_exclude:
+                  regex:
+                    - "^feature\/.+$"
+                    - "^bug\/.+$"
+                    - "^infra\/.+$"
+                  message: head branch cannot be `feature/*`, `bug/*`, `infra/*`.
+          - do: and
+            validate:
+              - do: baseRef
+                must_include:
+                  regex: "^release\/.+$"
+                  message: When base is `release/*`
+              - do: headRef
+                must_include:
+                  regex:
+                    - "^main$"
+                    - "^develop$"
+                    - "^release\/.+$"
+                    - "^feature\/.+$"
+                    - "^bug\/.+$"
+                  message: head branch name should be one of `main`, `develop`, `release/*`, `feature/*`, `bug/*`.
+                must_exclude:
+                  regex:
+                    - "^infra\/.+$"
+                  message: head branch cannot be `infra/*`.
+          - do: and
+            validate:
+              - do: baseRef
+                must_include:
+                  regex: "^feature\/.+$"
+                  message: When base is `feature/*`
+              - do: headRef
+                must_include:
+                  regex:
+                    - "^feature\/.+$"
+                    - "^bug\/.+$"
+                  message: head branch name should be one of `feature/*`, `bug/*`.
+                must_exclude:
+                  regex:
+                    - "^main$"
+                    - "^develop$"
+                    - "^release\/.+$"
+                    - "^infra\/.+$"
+                  message: head branch can't be `main`, `develop`, `release/*`, `infra/*`.
+          - do: and
+            validate:
+              - do: baseRef
+                must_include:
+                  regex: "^bug\/.+$"
+                  message: When base is `bug/*`
+              - do: headRef
+                must_include:
+                  regex:
+                    - "^bug\/.+$"
+                    - "^feature\/.+$"
+                  message: head branch name should be one of `bug/*`, `feature/*`.
+                must_exclude:
+                  regex:
+                    - "^main$"
+                    - "^develop$"
+                    - "^release\/.+$"
+                    - "^infra\/.+$"
+                  message: head branch name cannot be `main`, `develop`, `release/*`, `infra/*`.
+          - do: and
+            validate:
+              - do: baseRef
+                must_include:
+                  regex: "^infra\/.+$"
+                  message: When base is `infra/*`
+              - do: headRef
+                must_include:
+                  regex:
+                    - "^infra\/.+$"
+                  message: head branch name should be one of `infra/*`.
+                must_exclude:
+                  regex:
+                    - "^main$"
+                    - "^develop$"
+                    - "^release\/.+$"
+                    - "^feature\/.+$"
+                    - "^bug\/.+$"
+                  message: head branch cannot be `main`, `develop`, `release/*`, `feature/*`, `bug/*`.
+    pass:
+      - do: checks
+    fail:
+      - do: checks
+      - do: comment
+        payload:
+          body: |
+            :x:
+            **`{{ validationSuites.[0].validations.[1].details.input }}` is not allowed to merge into `{{ validationSuites.[0].validations.[0].details.input }}`.**
+    error:
+      - do: checks
