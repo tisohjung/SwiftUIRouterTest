@@ -1,14 +1,11 @@
 import SwiftUI
-
-
-import SwiftUI
+import SwiftUIRouter
 
 struct TCAMainView: View {
   @ObservedObject private var viewStore: TCAMainViewStore
   private let store: TCAMainStore
 
   @EnvironmentObject private var navigator: Navigator
-  @Environment(\.relativePath) private var relativePath
 
   init(store: TCAMainStore) {
     self.store = store
@@ -99,6 +96,7 @@ struct TCAMainView: View {
     .onAppear {
       print("@@@ onAppear : \(navigator)")
       viewStore.send(.setNavigator(navigator))
+      print("@@@ onAppear : \(navigator)")
     }
   }
 }

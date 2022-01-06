@@ -5,6 +5,7 @@
 //  Copyright © 2019 Freek Zijlmans. All rights reserved.
 //
 import SwiftUI
+import SwiftUIRouter
 
 struct ContentView: View {
   private let suggestions: [(name: String, url: String)] = [
@@ -58,18 +59,18 @@ struct ContentView: View {
 
 struct AddressBar: View {
 
-  @EnvironmentObject private var history: Navigator
+  @EnvironmentObject private var navigator: Navigator
 
   private func onBackPressed() {
-    history.goBack()
+    navigator.goBack()
   }
 
   private func onForwardPressed() {
-    history.goForward()
+    navigator.goForward()
   }
 
   private func onOpenPressed() {
-    if let url = URL(string: "https://github.com" + history.path) {
+    if let url = URL(string: "https://github.com" + navigator.path) {
       UIApplication.shared.open(url, options: [:])
     }
   }
@@ -77,7 +78,7 @@ struct AddressBar: View {
   var body: some View {
     HStack {
       HStack {
-        Text(history.path)
+        Text(navigator.path)
           .lineLimit(1)
 
         Spacer()
@@ -91,14 +92,14 @@ struct AddressBar: View {
           .imageScale(.large)
           .padding(4)
       }
-      .disabled(!history.canGoBack)
+      .disabled(!navigator.canGoBack)
 
       Button(action: onForwardPressed) {
         Image(systemName: "arrow.right.circle")
           .imageScale(.large)
           .padding(4)
       }
-      .disabled(!history.canGoForward)
+      .disabled(!navigator.canGoForward)
 
       Button(action: onOpenPressed) {
         Image(systemName: "safari")

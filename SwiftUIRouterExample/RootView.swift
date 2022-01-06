@@ -1,9 +1,9 @@
 import SwiftUI
+import SwiftUIRouter
 
 // Entry of the entire app.
 struct RootView: View {
   @EnvironmentObject private var navigator: Navigator
-  @Environment(\.relativePath) private var relativePath
 
   let store: TCAMainStore = .init(
     initialState: .init(),
@@ -13,15 +13,16 @@ struct RootView: View {
 
   var body: some View {
 //    contentView
-    TCAMainView(store: store)
+    NavigationView {
+      TCAMainView(store: store)
+    }
+    .navigationViewStyle(.stack)
   }
 
   var contentView: some View {
-    Router {
-      VStack {
-        AddressBar()
-        ContentView()
-      }
+    VStack {
+      AddressBar()
+      ContentView()
     }
   }
 }

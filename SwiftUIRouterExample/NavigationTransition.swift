@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftUIRouter
 
 struct NavigationTransition: ViewModifier {
   @EnvironmentObject private var navigator: Navigator

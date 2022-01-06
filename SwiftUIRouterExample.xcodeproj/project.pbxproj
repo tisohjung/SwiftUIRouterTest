@@ -21,13 +21,6 @@
 		9FE452BC274A2C0D00E73F0A /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE452B9274A232A00E73F0A /* Apple.swift */; };
 		9FE452BD274A2C0D00E73F0A /* Airbnb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE452BB274A232A00E73F0A /* Airbnb.swift */; };
 		9FE452BE274A2C0D00E73F0A /* Babel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE452BA274A232A00E73F0A /* Babel.swift */; };
-		9FE452C0274A859F00E73F0A /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE452BF274A859F00E73F0A /* Navigator.swift */; };
-		9FE452C8274A85FB00E73F0A /* NavLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE452C2274A85FB00E73F0A /* NavLink.swift */; };
-		9FE452C9274A85FB00E73F0A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE452C3274A85FB00E73F0A /* Route.swift */; };
-		9FE452CA274A85FB00E73F0A /* Navigate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE452C4274A85FB00E73F0A /* Navigate.swift */; };
-		9FE452CB274A85FB00E73F0A /* SwitchRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE452C5274A85FB00E73F0A /* SwitchRoutes.swift */; };
-		9FE452CC274A85FB00E73F0A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE452C6274A85FB00E73F0A /* Router.swift */; };
-		9FE452CD274A85FB00E73F0A /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE452C7274A85FB00E73F0A /* utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,13 +37,6 @@
 		9FE452B9274A232A00E73F0A /* Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
 		9FE452BA274A232A00E73F0A /* Babel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Babel.swift; sourceTree = "<group>"; };
 		9FE452BB274A232A00E73F0A /* Airbnb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airbnb.swift; sourceTree = "<group>"; };
-		9FE452BF274A859F00E73F0A /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
-		9FE452C2274A85FB00E73F0A /* NavLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavLink.swift; sourceTree = "<group>"; };
-		9FE452C3274A85FB00E73F0A /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		9FE452C4274A85FB00E73F0A /* Navigate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigate.swift; sourceTree = "<group>"; };
-		9FE452C5274A85FB00E73F0A /* SwitchRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchRoutes.swift; sourceTree = "<group>"; };
-		9FE452C6274A85FB00E73F0A /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		9FE452C7274A85FB00E73F0A /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				9F7BC21827507B9A00B69744 /* TCA */,
-				9FE452C1274A85CB00E73F0A /* SwiftUIRouter */,
 				9FE452912747823D00E73F0A /* AppDelegate.swift */,
 				9FE452AB2747866400E73F0A /* RootView.swift */,
 				9FE452932747823E00E73F0A /* ContentView.swift */,
@@ -124,20 +109,6 @@
 				9FE452BA274A232A00E73F0A /* Babel.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		9FE452C1274A85CB00E73F0A /* SwiftUIRouter */ = {
-			isa = PBXGroup;
-			children = (
-				9FE452C4274A85FB00E73F0A /* Navigate.swift */,
-				9FE452C2274A85FB00E73F0A /* NavLink.swift */,
-				9FE452C3274A85FB00E73F0A /* Route.swift */,
-				9FE452C6274A85FB00E73F0A /* Router.swift */,
-				9FE452C5274A85FB00E73F0A /* SwitchRoutes.swift */,
-				9FE452C7274A85FB00E73F0A /* utils.swift */,
-				9FE452BF274A859F00E73F0A /* Navigator.swift */,
-			);
-			path = SwiftUIRouter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,21 +189,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FE452CB274A85FB00E73F0A /* SwitchRoutes.swift in Sources */,
 				9FE452B727490BF600E73F0A /* StickyHeaderScrollView.swift in Sources */,
 				9FE452942747823E00E73F0A /* ContentView.swift in Sources */,
-				9FE452CA274A85FB00E73F0A /* Navigate.swift in Sources */,
 				9FE452BD274A2C0D00E73F0A /* Airbnb.swift in Sources */,
 				9FE452B52748B01700E73F0A /* NavigationTransition.swift in Sources */,
-				9FE452C9274A85FB00E73F0A /* Route.swift in Sources */,
-				9FE452C0274A859F00E73F0A /* Navigator.swift in Sources */,
-				9FE452CD274A85FB00E73F0A /* utils.swift in Sources */,
 				9FE452AC2747866400E73F0A /* RootView.swift in Sources */,
-				9FE452CC274A85FB00E73F0A /* Router.swift in Sources */,
 				9F7BC21727507B9200B69744 /* TCAMain.swift in Sources */,
 				9FE452BE274A2C0D00E73F0A /* Babel.swift in Sources */,
 				9FE452BC274A2C0D00E73F0A /* Apple.swift in Sources */,
-				9FE452C8274A85FB00E73F0A /* NavLink.swift in Sources */,
 				9F7BC21A275087EB00B69744 /* DeepLinkReducer.swift in Sources */,
 				9FE452922747823D00E73F0A /* AppDelegate.swift in Sources */,
 			);
@@ -362,9 +326,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIRouterExample/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -380,6 +346,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.SwiftUIRouter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -391,9 +358,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIRouterExample/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -409,6 +378,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.SwiftUIRouter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -444,7 +414,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.28.1;
+				minimumVersion = 0.31.0;
 			};
 		};
 		9FE452B127479A4200E73F0A /* XCRemoteSwiftPackageReference "SwiftUIRouter" */ = {
@@ -452,7 +422,7 @@
 			repositoryURL = "git@github.com:frzi/SwiftUIRouter.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 1.2.0;
+				minimumVersion = 1.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
